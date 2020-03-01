@@ -48,6 +48,8 @@
 		CE9C3A9A2407F1AA006A31B8 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C3A992407F1AA006A31B8 /* WebImageView.swift */; };
 		CE9C3AA42407F3DE006A31B8 /* SharingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C3AA22407F3DE006A31B8 /* SharingVC.swift */; };
 		CE9C3AA52407F3DE006A31B8 /* SharingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9C3AA32407F3DE006A31B8 /* SharingVC.xib */; };
+		CEDA1C53240BCA1E00B8C679 /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA1C52240BCA1E00B8C679 /* HomeTests.swift */; };
+		CEDA1C55240BCA3000B8C679 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA1C54240BCA3000B8C679 /* LoginTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		CE9C3A992407F1AA006A31B8 /* WebImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		CE9C3AA22407F3DE006A31B8 /* SharingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingVC.swift; sourceTree = "<group>"; };
 		CE9C3AA32407F3DE006A31B8 /* SharingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharingVC.xib; sourceTree = "<group>"; };
+		CEDA1C52240BCA1E00B8C679 /* HomeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
+		CEDA1C54240BCA3000B8C679 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		DEEE9D4BED78CAC0BF6502DE /* Pods-Sharing_Images_DemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharing_Images_DemoTests.debug.xcconfig"; path = "Target Support Files/Pods-Sharing_Images_DemoTests/Pods-Sharing_Images_DemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F749FB34F84C99C19E2CD5CF /* Pods-Sharing_Images_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sharing_Images_Demo.debug.xcconfig"; path = "Target Support Files/Pods-Sharing_Images_Demo/Pods-Sharing_Images_Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,6 +263,8 @@
 		CE7EA3AF2406F56B00F1DFF9 /* Sharing_Images_DemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA1C52240BCA1E00B8C679 /* HomeTests.swift */,
+				CEDA1C54240BCA3000B8C679 /* LoginTests.swift */,
 				CE7EA3B02406F56B00F1DFF9 /* Sharing_Images_DemoTests.swift */,
 				CE7EA3B22406F56B00F1DFF9 /* Info.plist */,
 			);
@@ -745,6 +751,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDA1C55240BCA3000B8C679 /* LoginTests.swift in Sources */,
+				CEDA1C53240BCA1E00B8C679 /* HomeTests.swift in Sources */,
 				CE7EA3B12406F56B00F1DFF9 /* Sharing_Images_DemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
