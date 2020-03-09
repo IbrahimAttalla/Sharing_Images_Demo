@@ -85,17 +85,11 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="f3i-f6-kMk">
-                                                            <rect key="frame" x="178.66666666666666" y="185" width="37" height="37"/>
-                                                            <color key="color" red="0.1960784314" green="0.23137254900000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="qTd-gI-Mil" secondAttribute="trailing" constant="10" id="BRQ-d1-HDj"/>
                                                         <constraint firstItem="dQJ-3N-xf5" firstAttribute="centerY" secondItem="ueo-y1-55u" secondAttribute="centerY" id="Ciy-6P-Rkw"/>
-                                                        <constraint firstItem="f3i-f6-kMk" firstAttribute="centerX" secondItem="qTd-gI-Mil" secondAttribute="centerX" id="Fgm-2K-w3f"/>
-                                                        <constraint firstItem="f3i-f6-kMk" firstAttribute="centerY" secondItem="qTd-gI-Mil" secondAttribute="centerY" id="Giu-fC-hxJ"/>
                                                         <constraint firstItem="ueo-y1-55u" firstAttribute="top" secondItem="WaK-cT-Pjf" secondAttribute="top" constant="5" id="YVp-ep-TEX"/>
                                                         <constraint firstItem="dQJ-3N-xf5" firstAttribute="leading" secondItem="ueo-y1-55u" secondAttribute="trailing" constant="10" id="hS1-fC-Y6J"/>
                                                         <constraint firstItem="qTd-gI-Mil" firstAttribute="top" secondItem="ueo-y1-55u" secondAttribute="bottom" constant="5" id="iDK-Cf-HTt"/>
@@ -132,7 +126,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="loadingHud" destination="f3i-f6-kMk" id="xrI-fl-TMt"/>
                                             <outlet property="postImgV" destination="qTd-gI-Mil" id="n41-xg-2ZX"/>
                                             <outlet property="postOwnerImgV" destination="ueo-y1-55u" id="vgo-2G-gVc"/>
                                             <outlet property="postOwnerName" destination="dQJ-3N-xf5" id="DNc-qA-AzC"/>
@@ -674,14 +667,6 @@
                                                                 <action selector="changeStaus:" destination="eCN-24-bmw" eventType="valueChanged" id="EVP-um-3el"/>
                                                             </connections>
                                                         </switch>
-                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yZW-N2-Nip">
-                                                            <rect key="frame" x="69.666666666666671" y="71.666666666666671" width="30" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="OaD-UX-N0y"/>
-                                                                <constraint firstAttribute="width" constant="30" id="TPb-cK-QeD"/>
-                                                            </constraints>
-                                                            <color key="color" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -692,10 +677,8 @@
                                                         <constraint firstAttribute="trailing" secondItem="LPj-XE-EGm" secondAttribute="trailing" constant="5" id="aQ3-9N-4ES"/>
                                                         <constraint firstItem="LPj-XE-EGm" firstAttribute="top" secondItem="tPk-RS-CRX" secondAttribute="top" constant="5" id="b3X-zZ-SUi"/>
                                                         <constraint firstAttribute="bottom" secondItem="1ji-od-9n6" secondAttribute="bottom" constant="10" id="m2i-BW-fGB"/>
-                                                        <constraint firstItem="yZW-N2-Nip" firstAttribute="centerX" secondItem="tPk-RS-CRX" secondAttribute="centerX" id="m4c-b5-5IO"/>
                                                         <constraint firstItem="vQz-LA-RWx" firstAttribute="height" secondItem="1ji-od-9n6" secondAttribute="height" multiplier="1.14815" id="mhY-tX-UnM"/>
                                                         <constraint firstItem="1ji-od-9n6" firstAttribute="leading" secondItem="LPj-XE-EGm" secondAttribute="leading" id="q1C-Uq-LCd"/>
-                                                        <constraint firstItem="yZW-N2-Nip" firstAttribute="centerY" secondItem="tPk-RS-CRX" secondAttribute="centerY" constant="-20" id="tys-nU-zL5"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -708,7 +691,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="image" destination="LPj-XE-EGm" id="CCO-UX-UJg"/>
-                                            <outlet property="loadingHud" destination="yZW-N2-Nip" id="QnQ-pF-JbM"/>
                                             <outlet property="sharingSwitchOutLet" destination="vQz-LA-RWx" id="beb-X0-UNO"/>
                                         </connections>
                                     </collectionViewCell>

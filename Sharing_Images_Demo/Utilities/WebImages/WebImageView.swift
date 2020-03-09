@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AMShimmer
+import SDWebImage
 
 
 extension String {
@@ -44,6 +46,21 @@ extension Data {
         bcf.countStyle = .file
         let size = bcf.string(fromByteCount: Int64(self.count))
         return size
+    }
+}
+
+extension UIImageView{
+    func loadImgThroughSDWebImage(ImgUrl:String , avatar:String){
+        
+        let imageURL = URL(string: ImgUrl ?? "")
+        AMShimmer.start(for: self)
+                       self.sd_setImage(with: imageURL, completed: {
+                           (image, error, cacheType, url) in
+                           if error != nil {
+                               self.image = UIImage(named: avatar) // add placeholder
+                           }
+                           AMShimmer.stop(for: self)
+                       })
     }
 }
 

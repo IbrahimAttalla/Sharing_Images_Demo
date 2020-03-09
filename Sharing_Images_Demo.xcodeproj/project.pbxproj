@@ -16,7 +16,6 @@
 		CE5B8C592409C5C80001C3E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5B8C582409C5C80001C3E4 /* GoogleService-Info.plist */; };
 		CE5F2F5424098A5E004D057B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2F5324098A5E004D057B /* LoginVC.swift */; };
 		CE5F2F5924098AF7004D057B /* RegisterationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F2F5824098AF7004D057B /* RegisterationVC.swift */; };
-		CE6FB04D2407AA0E004925F2 /* MusicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FB04C2407AA0E004925F2 /* MusicList.swift */; };
 		CE6FB04F2407AB4E004925F2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6FB04E2407AB4E004925F2 /* Media.xcassets */; };
 		CE6FB0542407BBA8004925F2 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FB0532407BBA8004925F2 /* PhotoCell.swift */; };
 		CE7EA39A2406F56A00F1DFF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EA3992406F56A00F1DFF9 /* AppDelegate.swift */; };
@@ -83,7 +82,6 @@
 		CE5B8C582409C5C80001C3E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE5F2F5324098A5E004D057B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CE5F2F5824098AF7004D057B /* RegisterationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationVC.swift; sourceTree = "<group>"; };
-		CE6FB04C2407AA0E004925F2 /* MusicList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicList.swift; sourceTree = "<group>"; };
 		CE6FB04E2407AB4E004925F2 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CE6FB0532407BBA8004925F2 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		CE7EA3962406F56A00F1DFF9 /* Sharing_Images_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharing_Images_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,7 +187,6 @@
 		CE6FB04B2407AA0E004925F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE6FB04C2407AA0E004925F2 /* MusicList.swift */,
 				CE89B679240AFB4200CF68C9 /* User.swift */,
 			);
 			path = Models;
@@ -717,7 +714,6 @@
 				CE9C3A902407E080006A31B8 /* ProfileVC.swift in Sources */,
 				CE9C3A972407E452006A31B8 /* CamareHandler.swift in Sources */,
 				CE15E494240B6B010072B9DE /* ImagesCellViewModel.swift in Sources */,
-				CE6FB04D2407AA0E004925F2 /* MusicList.swift in Sources */,
 				CE7EA3D32406F64500F1DFF9 /* WebAPI.swift in Sources */,
 				CE5F2F5424098A5E004D057B /* LoginVC.swift in Sources */,
 				CE9C3A942407E16D006A31B8 /* MyPhotoCell.swift in Sources */,
@@ -850,7 +846,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -904,7 +900,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

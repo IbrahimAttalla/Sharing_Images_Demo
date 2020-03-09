@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SDWebImage
+import AMShimmer
 
 class PhotoCell: UITableViewCell {
 
@@ -14,7 +16,6 @@ class PhotoCell: UITableViewCell {
     @IBOutlet weak var postOwnerName: UILabel!
     @IBOutlet weak var postImgV: UIImageView!
     
-    @IBOutlet weak var loadingHud: UIActivityIndicatorView!
     
     var photocellVM : PhotoCellViewModel?{
         didSet{
@@ -23,46 +24,59 @@ class PhotoCell: UITableViewCell {
             postImgV.image = nil
             self.selectionStyle = .none
 
-            photocellVM!.updateLoadingStatus = { [weak self] () in
-                guard let self = self else {
-                    return
-                }
-                
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    switch self.photocellVM!.state {
-                    case .empty, .error:
-                        self.loadingHud.stopAnimating()
-                        self.loadingHud.isHidden = true
-                    case .loading:
-                        self.loadingHud.startAnimating()
-                        self.loadingHud.isHidden = false
-                    case .populated:
-                        self.loadingHud.stopAnimating()
-                        self.loadingHud.isHidden = true
-
-                    }
-                }
-            }
             
-            photocellVM!.setImgToView = { [weak self] () in
-                guard let self = self else {return}
-                DispatchQueue.main.async {
-                    if let postimage = self.photocellVM!.postImgData{
-                        self.postImgV.image = UIImage(data: postimage)
-                    }
-                    if let image = self.photocellVM!.postOwnerImgData{
-                        self.postOwnerImgV.image = UIImage(data: image)
-                    }
-                    if let ownerName = self.photocellVM?.ownerName {
-                        self.postOwnerName.text = ownerName
-                    }
-
-                    
-                }
-            }
             
-            photocellVM!.fetchImgs()
+            postImgV.loadImgThroughSDWebImage(ImgUrl: self.photocellVM!.postImgUrl, avatar: "photos")
+            
+            postOwnerImgV.loadImgThroughSDWebImage(ImgUrl: self.photocellVM!.ownerImg, avatar: "photos")
+            
+            if let ownerName = self.photocellVM?.ownerName {
+                self.postOwnerName.text = ownerName
+            }
+
+            
+            
+            //            photocellVM!.setImgToView = { [weak self] () in
+            //                guard let self = self else {return}
+            //                DispatchQueue.main.async {
+            //                    if let postimage = self.photocellVM!.postImgData{
+            //                        self.postImgV.image = UIImage(data: postimage)
+            //                    }
+            //                    if let image = self.photocellVM!.postOwnerImgData{
+            //                        self.postOwnerImgV.image = UIImage(data: image)
+            //                    }
+            //                    if let ownerName = self.photocellVM?.ownerName {
+            //                        self.postOwnerName.text = ownerName
+            //                    }
+            //
+            //
+            //                }
+            //            }
+
+            //            photocellVM!.fetchImgs()
+            
+            //            photocellVM!.updateLoadingStatus = { [weak self] () in
+            //                guard let self = self else {
+            //                    return
+            //                }
+            //
+            //                DispatchQueue.main.async { [weak self] in
+            //                    guard let self = self else { return }
+            //                    switch self.photocellVM!.state {
+            //                    case .empty, .error:
+            //                        self.loadingHud.stopAnimating()
+            //                        self.loadingHud.isHidden = true
+            //                    case .loading:
+            //                        self.loadingHud.startAnimating()
+            //                        self.loadingHud.isHidden = false
+            //                    case .populated:
+            //                        self.loadingHud.stopAnimating()
+            //                        self.loadingHud.isHidden = true
+            //
+            //                    }
+            //                }
+            //            }
+
             }
 
         }
@@ -78,8 +92,10 @@ class PhotoCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     func config(){
         self.selectionStyle = .none
     }
 
 }
+

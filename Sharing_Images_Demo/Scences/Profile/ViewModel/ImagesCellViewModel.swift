@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class ImagesCellViewModel {
     
     let loadImg = LoadImage()

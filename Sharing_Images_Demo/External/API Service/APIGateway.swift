@@ -54,7 +54,6 @@ protocol APIHomeServiceProtocol {
 
 
 // MARK:- Login Gateway class
-
 class AuthGateway: APILoginServiceProtocol {
     
     func login(email:String , password:String,complete: @escaping (_ success:Bool?, _ serverError:String?) -> ()) {
@@ -76,9 +75,7 @@ class AuthGateway: APILoginServiceProtocol {
 
 
 
-
 // MARK:- Register Getway class
-
 class RegisterGetway: APIRegisterServiceProtocol {
     
     func  register(email:String , password:String,complete: @escaping (_ success:Bool?, _ serverError:String? ) -> ())  {
@@ -103,7 +100,6 @@ class RegisterGetway: APIRegisterServiceProtocol {
 
 
 // MARK:- Profile Getway class
-
 class ProfileGetway: APIProfileServiceProtocol {
     func updateImageStatus(imageId: String, imageStatus: Bool, complete: @escaping (Bool?, String?) -> ()) {
         print("good")
@@ -186,6 +182,7 @@ class ProfileGetway: APIProfileServiceProtocol {
 }
 
 
+
 // MARK:- Sharing Getway class
 class SharingGetway: APISharingServiceProtocol {
     
@@ -210,8 +207,8 @@ class SharingGetway: APISharingServiceProtocol {
 }
 
 
-// MARK:- Profile Getway class
 
+// MARK:- Profile Getway class
 class HomeGetway: APIHomeServiceProtocol {
     
     

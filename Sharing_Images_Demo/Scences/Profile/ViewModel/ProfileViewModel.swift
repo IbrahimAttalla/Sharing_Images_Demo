@@ -75,7 +75,8 @@ class ProfileViewModel {
 //                        self.state = .populated
                     }
                 }
-            }else{
+            }
+            else{
                 self.state = .error
             }
             

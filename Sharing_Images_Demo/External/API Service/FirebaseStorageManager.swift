@@ -12,6 +12,7 @@ import FirebaseStorage
 
 class FirebaseStorageManager{
     
+    // MARK: - upload File to firebase
     public func uploadFile(localFile: URL, serverFileName: String, completionHandler: @escaping (_ isSuccess: Bool, _ url: String?) -> Void) {
         
         let storage = Storage.storage()
@@ -33,6 +34,9 @@ class FirebaseStorageManager{
         }
     }
     
+    
+    
+    // MARK: - upload ImageData to firebase
     public func uploadImageData(data: Data, serverFileName: String, completionHandler: @escaping (_ isSuccess: Bool, _ url: String?) -> Void) {
         
         let storage = Storage.storage()

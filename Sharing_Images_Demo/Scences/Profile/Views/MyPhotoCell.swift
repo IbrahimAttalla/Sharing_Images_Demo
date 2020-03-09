@@ -7,42 +7,40 @@
 //
 
 import UIKit
+import AMShimmer
+import SDWebImage
 
 class MyPhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var sharingSwitchOutLet: UISwitch!
     
-    @IBOutlet weak var loadingHud: UIActivityIndicatorView!
     
     var imagscellVM : ImagesCellViewModel?{
         didSet{
             // to reset all views til loading a new one
             image.image = nil
 
-            imagscellVM!.updateLoadingStatus = { [weak self] () in
-                guard let self = self else {
-                    return
-                }
-                
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    switch self.imagscellVM!.state {
-                    case .empty, .error:
-                        self.loadingHud.stopAnimating()
-                        self.loadingHud.isHidden = true
-                        
-                    case .loading:
-                        self.loadingHud.startAnimating()
-                        self.loadingHud.isHidden = false
-                    case .populated:
-                        self.loadingHud.stopAnimating()
-                        self.loadingHud.isHidden = true
-
-                    }
-                }
-            }
             
+            
+            
+            
+                let imageURL = URL(string: self.imagscellVM!.imageUrl ?? "")
+                AMShimmer.start(for: self.image)
+                self.image.sd_setImage(with: imageURL, completed: {
+                    (image, error, cacheType, url) in
+                    if error != nil {
+                        self.image.image = UIImage(named: "photos") // add placeholder
+                    }
+                    AMShimmer.stop(for: self.image)
+                })
+            
+            
+            DispatchQueue.main.async {
+            self.sharingSwitchOutLet.setOn(self.imagscellVM?.sharing ?? false, animated: true)
+
+            }
+/*
             imagscellVM!.setImgToView = { [weak self] () in
                 guard let self = self else {return}
                 DispatchQueue.main.async {
@@ -53,8 +51,36 @@ class MyPhotoCell: UICollectionViewCell {
                     self.sharingSwitchOutLet.setOn(self.imagscellVM?.sharing ?? false, animated: true)
                 }
             }
+*/
             
-            imagscellVM!.fetchImg()
+//
+//            imagscellVM!.updateLoadingStatus = { [weak self] () in
+//                guard let self = self else {
+//                    return
+//                }
+//
+//                DispatchQueue.main.async { [weak self] in
+//                    guard let self = self else { return }
+//                    switch self.imagscellVM!.state {
+//                    case .empty, .error:
+//                        self.loadingHud.stopAnimating()
+//                        self.loadingHud.isHidden = true
+//
+//                    case .loading:
+//                        self.loadingHud.startAnimating()
+//                        self.loadingHud.isHidden = false
+//                    case .populated:
+//                        self.loadingHud.stopAnimating()
+//                        self.loadingHud.isHidden = true
+//
+//                    }
+//                }
+//            }
+//
+
+            
+            
+//            imagscellVM!.fetchImg()
             }
 
         }
