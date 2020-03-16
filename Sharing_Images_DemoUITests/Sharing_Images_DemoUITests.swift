@@ -23,14 +23,43 @@ class Sharing_Images_DemoUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+//    func testExample() {
+//        // UI tests must launch the application that they test.
+//        let app = XCUIApplication()
+//        app.launch()
+//
+//        // Use recording to get started writing UI tests.
+//        // Use XCTAssert and related functions to verify your tests produce the correct results.
+//    }
+    
+    func testLoginSuccess(){
+        
+        
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        let validEmail = "hima@yahoo.com"
+        let validPassword = "123456"
+
+
+        let elementsQuery = XCUIApplication().scrollViews.otherElements
+        let userNameTF = elementsQuery.textFields["E_mail"]
+        XCTAssertTrue(userNameTF.exists)
+        userNameTF.tap()
+        userNameTF.typeText(validEmail)
+
+
+        let passwordTF = elementsQuery.secureTextFields["Password"]
+        XCTAssertTrue(passwordTF.exists)
+        passwordTF.tap()
+        passwordTF.typeText(validPassword)
+
+        elementsQuery.buttons["Login"].tap()
+        
+        
+        let homePage = XCUIApplication().tabBars["Home"]
+        XCTAssertTrue(homePage.exists)
+        
+
+            }
 
     func testLaunchPerformance() {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
