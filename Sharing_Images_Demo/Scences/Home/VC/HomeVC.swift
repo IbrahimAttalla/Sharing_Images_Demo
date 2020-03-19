@@ -25,6 +25,8 @@ class HomeVC: UIViewController {
               else {
                          // Fallback on earlier versions
                      }
+        view.accessibilityIdentifier = "view_Homeboard"
+
         configrationTableView()
     }
     

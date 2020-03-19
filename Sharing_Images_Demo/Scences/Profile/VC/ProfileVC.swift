@@ -29,7 +29,7 @@ class ProfileVC: UIViewController  , UIImagePickerControllerDelegate , UINavigat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        view.accessibilityIdentifier = "view_Profileboard"
         if #available(iOS 13.0, *) {
                    initVM()
                }

@@ -32,34 +32,95 @@ class Sharing_Images_DemoUITests: XCTestCase {
 //        // Use XCTAssert and related functions to verify your tests produce the correct results.
 //    }
     
-    func testLoginSuccess(){
+    func testFullCycleFromLoginToLgout(){
         
         
 
         let validEmail = "hima@yahoo.com"
         let validPassword = "123456"
 
-
-        let elementsQuery = XCUIApplication().scrollViews.otherElements
+        let app = XCUIApplication()
+        let elementsQuery = app.scrollViews.otherElements
+        
+        // userNameTF
         let userNameTF = elementsQuery.textFields["E_mail"]
         XCTAssertTrue(userNameTF.exists)
         userNameTF.tap()
         userNameTF.typeText(validEmail)
 
-
+        //  passwordTF
         let passwordTF = elementsQuery.secureTextFields["Password"]
         XCTAssertTrue(passwordTF.exists)
         passwordTF.tap()
         passwordTF.typeText(validPassword)
+        
+        // MARK:- to login screen
+         // elementsQuery.buttons["Login"].tap()
+        let loginBtnPressed = elementsQuery.buttons["Login"]
+        loginBtnPressed.tap()
+        
+        
+        // MARK:- test if the next screen is Home one
+        let homeBoardView = app.otherElements["view_Homeboard"]
+        let homeBoardShown = homeBoardView.waitForExistence(timeout: 5)
+        XCTAssert(homeBoardShown)
 
-        elementsQuery.buttons["Login"].tap()
+        // test swipe
+        app.swipeUp()
+        app.swipeUp()
+        app.swipeDown()
+        
+        // TODO:- test selection of some cells
         
         
-        let homePage = XCUIApplication().tabBars["Home"]
-        XCTAssertTrue(homePage.exists)
         
+        // MARK:- test navigate to profile screen by tabBar
+        let profielTab = app.tabBars.buttons["Profile"]
+        let homeTap = app.tabBars.buttons["Home"]
+        profielTab.tap()
+        
+        // MARK:- test if the next screen is Profile one
+        let ProfileBoardView = app.otherElements["view_Profileboard"]
+        let ProfileBoardShown = ProfileBoardView.waitForExistence(timeout: 1)
+        XCTAssert(ProfileBoardShown)
 
+        // MARK:- test scrolling of images collection  at profile view
+        let imagesCollection = app.collectionViews
+        let scrolling = imagesCollection.containing(.other, identifier: "Vertical scroll bar, 12 pages").element
+        scrolling.swipeUp()
+        scrolling.swipeDown()
+        scrolling.swipeUp()
+
+        
+        // MARK:- access Camera
+        
+        
+        /*  VV IMP if you get any view from snapshot with incorrect name the next error helper will help you 😉😉
+         Failed to get matching snapshot: No matches found for Elements matching predicate '"camera" IN identifiers' from input {(
+             Button, label: 'Home',
+             Button, label: 'Profile', Selected,
+             Button, label: 'edit',
+             Button, label: 'cameraIcone',
+             Button, label: 'logout'
+         )}
+         */
+        
+//        app.buttons["cameraIcone"].tap()
+//        app.buttons["CANCEL"].tap()
+//        app/*@START_MENU_TOKEN@*/.buttons["cameraIcone"]/*[[".otherElements[\"view_Profileboard\"].buttons[\"cameraIcone\"]",".buttons[\"cameraIcone\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+//        app.sheets.scrollViews.otherElements.buttons["CAMERA"].tap()
+//        app/*@START_MENU_TOKEN@*/.buttons["PhotoCapture"]/*[[".buttons[\"Take Picture\"]",".buttons[\"PhotoCapture\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+//        app.buttons["Use Photo"].tap()
+
+        
+        // MARK:- test logout Btn
+        let logoutBtn  = app.buttons["logout"]
+        logoutBtn.tap()
+        
+        
+        
             }
+    
 
     func testLaunchPerformance() {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
